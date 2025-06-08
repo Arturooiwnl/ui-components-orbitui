@@ -1,0 +1,97 @@
+---
+import {description, siteName, imageMetaAlt} from './constLayout'
+
+import '@fontsource/audiowide';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/icon.webp" />
+	<meta name="description" content={description}/>
+	<meta property="og:title" content={siteName} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://uicomponents.vercel.app/" />
+	<meta property="og:locale" content="es" />
+	<meta property="og:description" content={description}/>
+	<meta property="og:site_name" content={siteName} />
+	<meta property="og:image" content="https://uicomponents.vercel.app/og/og.png" />
+	<meta property="og:image:alt" content={imageMetaAlt} />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@ArturoPerotto" />
+	<meta name="twitter:title" content={siteName} />
+	<meta name="twitter:description" content={description}/>
+	<meta name="twitter:image" content="https://uicomponents.vercel.app/og/og.png" />
+	<meta name="twitter:image:alt" content={imageMetaAlt} />
+	<meta name="robots" content="max-image-preview:large" />
+    <title>{title}</title>
+</head>
+<body class="relative bg-slate-950">
+	<div class="fixed inset-0 -z-10 w-full min-h-screen bg-slate-950 ">
+		<div class="absolute inset-0 bg-gray-950">
+			<div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-[radial-gradient(#374151_1px,transparent_1px  bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px] opacity-30" />
+			<div class="absolute inset-0 bg-gradient-to-br sfrom-gray-950 via-gray-900 to-gray-950" />
+		  </div>
+	</div>
+	<main>
+		<slot />
+	</main>
+</body>
+</html>
+
+<script is:inline>
+
+    const code = document.querySelector("code");
+    const copyBtn = document.querySelector('.copy-button');
+    const copyIcon = document.querySelector('.copy-icon');
+    const copyIconCheck = document.querySelector('.copy-icon-check');
+    
+    copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(code.textContent)
+            .then(() => {
+                copyIcon.classList.toggle("hidden")
+                copyIconCheck.classList.toggle("hidden")
+                setTimeout(() => {
+                    copyIcon.classList.toggle("hidden")
+                    copyIconCheck.classList.toggle("hidden")
+                }, 2000);
+            })
+            .catch(err => {
+                console.error("An error occurred while copying the text: ", err);
+            });
+    });
+
+	const codeBlock = document.querySelector(".astro-code")
+	const componentName = document.querySelector(".component-name")
+	codeBlock.className = "rounded-xs p-3 border border-gray-500/50 group-hover:border-gray-500/80 transition-all duration-300"
+	componentName.className = "absolute top-4.5 left-3 bg-[#24292e] w-fit ml-5 mb-1.5 border-r border-l border-t border-gray-500/50 group-hover:border-gray-500/80 text-gray-800 dark:text-gray-300 text-xs px-5 py-1 rounded-sm font-mono"
+
+</script>
+
+<style is:global>
+
+	html {
+	  font-family: system-ui, sans-serif;
+	  scroll-behavior: smooth;
+	}
+
+	body {
+	  overscroll-behavior: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+	  html {
+		scroll-behavior: auto;
+	  }
+	}
+
+</style>

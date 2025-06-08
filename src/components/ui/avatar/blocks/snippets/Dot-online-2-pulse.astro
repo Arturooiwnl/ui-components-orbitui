@@ -1,0 +1,19 @@
+---
+import {Avatar, AvatarImage, AvatarFallback} from "@/components/ui/avatar";
+---
+<div class="relative w-fit">
+  <Avatar class="ring-2 ring-indigo-500">
+    <AvatarImage src="https://i.pravatar.cc/300" alt="Avatar" />
+    <AvatarFallback>YOU</AvatarFallback>
+  </Avatar>
+  <span class="absolute z-10 top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
+  <span class="absolute z-10 top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
+</div>
+<div class="relative w-fit">
+  <Avatar variant="square" class="ring-2 ring-indigo-500">
+    <AvatarImage src="https://i.pravatar.cc/300" alt="Avatar" />
+    <AvatarFallback>YOU</AvatarFallback>
+  </Avatar>
+  <span class="absolute z-10 -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
+  <span class="absolute z-10 -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
+</div>

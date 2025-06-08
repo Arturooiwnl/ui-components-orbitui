@@ -1,0 +1,25 @@
+---
+import { Input } from "@/components/ui/input";
+
+---
+
+<div class="relative group w-full">
+    <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-500 rounded-lg blur opacity-50 group-hover:opacity-100 transition duration-300"></div>
+    <div class="relative">
+        <Input
+            class="w-full bg-black/80 backdrop-blur-sm border border-gray-700 rounded-lg px-4 py-3 text-gray-100 placeholder:text-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+            type="email"
+            name="email-tech"
+            id="email-tech"
+            placeholder=name@company.com
+            required
+        />
+        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-8.486 8.486l4.243 4.243 4.243-4.243a6 6 0 000-8.486zm-1.414 7.072l-2.829 2.829-2.829-2.829a4 4 0 115.657-5.657 4 4 0 010 5.657z" clip-rule="evenodd" />
+            </svg>
+        </div>
+    </div>
+    <div class="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+</div>
+

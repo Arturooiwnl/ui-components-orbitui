@@ -1,0 +1,139 @@
+---
+import Home from "@/assets/icons/home.astro";
+import Github from "@/assets/icons/github.astro";
+import Discord from "@/assets/icons/discord.astro";
+import Category from "@/assets/icons/category.astro";
+
+
+interface Props {
+  currentPage?: string;
+}
+
+const NAVIGATIONS = [
+  {
+    label: "Home",
+    href: "/",
+    icon: Home,
+    gradient: "from-blue-500/20 to-purple-500/20",
+    tooltip: "Home",
+  },
+  {
+    label: "Categories",
+    href: "/categories",
+    icon: Category,
+    gradient: "from-purple-500/20 to-pink-500/20",
+    tooltip: "Categories",
+  },
+];
+
+const EXTERNALS = [
+  {
+    label: "Github",
+    href: "https://github.com/Arturooiwnl/ui-components-orbitui",
+    icon: Github,
+    tooltip: "Github",
+  },
+  {
+    label: "Discord",
+    href: "https://discord.gg/X9h7q2Z6B2",
+    icon: Discord,
+    tooltip: "Discord",
+  },
+];
+
+
+--- 
+<nav class="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 z-50 bg-slate-900/60 backdrop-blur-2xl border border-slate-800/50 rounded-2xl p-4 shadow-2xl">
+          <div class="flex flex-col gap-4">
+            {NAVIGATIONS.map(nav => (
+              <a 
+              aria-label={`Go to ${nav.label}`}
+                href={nav.href}
+                class="group relative flex items-center justify-center w-12 h-12 bg-slate-800/50 hover:bg-slate-700/60 rounded-xl transition-all duration-300 hover:scale-110"
+                title={`Go to ${nav.label}`}
+              >
+                <nav.icon class='w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300 relative z-10'/>
+                <div class={`absolute inset-0 bg-gradient-to-r ${nav.gradient} rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+  
+                    <div class="z-20 absolute left-full top-1/2 -translate-y-1/2 ml-1 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <span class="w-0 h-0 border-t-5 rotate-180 border-b-5 border-l-5 border-t-transparent border-b-transparent border-l-slate-700"></span>
+                      <div class="bg-slate-800 border border-slate-700 backdrop-blur-sm text-white text-sm px-3 py-1 rounded-lg whitespace-nowrap">{nav.tooltip}</div>
+                    </div>
+              </a>
+            ))}
+
+            <div class="w-8 h-0.5 bg-slate-700/50 mx-auto"></div>
+
+            {EXTERNALS.map(ext => (
+              <a 
+              aria-label={`Go to ${ext.label}`}
+                href={ext.href}
+                rel="noopener noreferrer"
+                class="group relative flex items-center justify-center w-12 h-12 bg-slate-800/50 hover:bg-slate-700/60 rounded-xl transition-all duration-300 hover:scale-110"
+                title={`Go to ${ext.label}`}
+              >
+                <ext.icon class='w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300 relative z-10'/>
+                <div class="z-20 absolute left-full top-1/2 -translate-y-1/2 ml-1 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <span class="w-0 h-0 border-t-5 rotate-180 border-b-5 border-l-5 border-t-transparent border-b-transparent border-l-slate-700"></span>
+                  <div class="bg-slate-800 border border-slate-700 backdrop-blur-sm text-white text-sm px-3 py-1 rounded-lg whitespace-nowrap">{ext.tooltip}</div>
+                </div>
+              </a>
+              ))}
+
+              <a 
+                aria-label="Go to OrbitUI"
+                href="https://orbitui-docs.vercel.app/"
+                rel="noopener noreferrer"
+                class="group relative flex items-center justify-center w-12 h-12 bg-slate-800/50 hover:bg-slate-700/60 rounded-xl transition-all duration-300 hover:scale-110"
+                title="Go to OrbitUI"
+                >
+                <img src="/favicon.png" class="saturate-0 group-hover:saturate-100 transition-all duration-300" alt="OrbitUI Accessible, Customizable, & Lightweight component library"/>
+                <div class="z-20 absolute left-full top-1/2 -translate-y-1/2 ml-1 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <span class="w-0 h-0 border-t-5 rotate-180 border-b-5 border-l-5 border-t-transparent border-b-transparent border-l-slate-700"></span>
+                  <div class="bg-slate-800 border border-slate-700 backdrop-blur-sm text-white text-sm px-3 py-1 rounded-lg whitespace-nowrap">OrbitUI</div>
+                </div>
+              </a>
+      </div>
+        </nav>
+
+        {/* cel */}
+        <nav class="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-slate-900/80 backdrop-blur-2xl border border-slate-800/50 rounded-2xl px-6 py-3 shadow-2xl">
+          <div class="flex items-center gap-4">
+            {NAVIGATIONS.map(nav => (
+              <a 
+              aria-label={`Go to ${nav.label}`}
+                href={nav.href}
+                class="group relative flex items-center justify-center w-12 h-12 bg-slate-800/50 hover:bg-slate-700/60 rounded-xl transition-all duration-300 hover:scale-110"
+                title={`Go to ${nav.label}`}
+              >
+                <nav.icon class='w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300 relative z-10'/>
+                <div class={`absolute inset-0 bg-gradient-to-r ${nav.gradient} rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+
+              </a>
+            ))}
+
+            <div class="w-0.5 h-8 bg-slate-700/50 mx-auto"></div>
+
+            {EXTERNALS.map(ext => (
+              <a 
+              aria-label={`Go to ${ext.label}`}
+                href={ext.href}
+                rel="noopener noreferrer"
+                class="group relative flex items-center justify-center w-12 h-12 bg-slate-800/50 hover:bg-slate-700/60 rounded-xl transition-all duration-300 hover:scale-110"
+                title={`Go to ${ext.label}`}
+              >
+                <ext.icon class='w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300 relative z-10'/>
+              </a>
+              ))}
+
+              <a 
+                aria-label="Go to OrbitUI"
+                href="https://orbitui-docs.vercel.app/"
+                rel="noopener noreferrer"
+                class="group relative flex items-center justify-center w-12 h-12 bg-slate-800/50 hover:bg-slate-700/60 rounded-xl transition-all duration-300 hover:scale-110"
+                title="Go to OrbitUI"
+                >
+                <img src="/favicon.png" class="saturate-0 group-hover:saturate-100 transition-all duration-300" alt="OrbitUI Accessible, Customizable, & Lightweight component library"/>
+              </a>
+      </div>
+        </nav>

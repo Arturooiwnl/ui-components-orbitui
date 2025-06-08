@@ -1,0 +1,20 @@
+---
+import { Input } from "@/components/ui/input";
+
+---
+
+<div class="w-full border border-cyan-500 rounded-xl bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#0f172a] p-6 shadow-lg shadow-cyan-700/30 transition-transform ">
+    <header class="mb-3">
+    <h3 class="text-xl font-extrabold text-cyan-400 tracking-tight">Newsletter</h3>
+    <p class="text-sm text-slate-400">Don't miss the latest news</p>
+    </header>
+
+    <Input
+    class="w-full bg-[#020617] text-cyan-200 border border-cyan-600 rounded-lg px-4 py-2 shadow-inner focus:outline-none focus:ring-2 focus:ring-cyan-400 placeholder-cyan-500 transition-all"
+    type="email"
+    name="email"
+    id="email"
+    placeholder=name@company.com
+    required
+    />
+</div>
