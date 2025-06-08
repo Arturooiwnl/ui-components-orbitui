@@ -28,10 +28,10 @@ export const badgesBlocks = [
         link: "/badges/ia-1"
     },
     {
-        id: "admin-1",
+        id: "admin-1-shield",
         title: "Admin 1",
         component: Admin1Shield,
-        link: "/badges/admin-1"
+        link: "/badges/admin-1-shield"
     },
     {
         id: "plan-1-free",
