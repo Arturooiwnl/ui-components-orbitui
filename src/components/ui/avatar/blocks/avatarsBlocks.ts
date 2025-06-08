@@ -13,10 +13,10 @@ export const avatarsBlocks = [
         link: "/avatars/dot-online-1-simple"
     },
     {
-        id: "dot-online-1-pulse",
+        id: "dot-online-2-pulse",
         title: "Dot - Online 2",
         component: DotOnline2Pulse,
-        link: "/avatars/dot-online-1-pulse"
+        link: "/avatars/dot-online-2-pulse"
     },
     {
         id: "avatar-tech-1",
