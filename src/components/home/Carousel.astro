@@ -1,0 +1,121 @@
+---
+import { Card, CardContent } from "@/components/ui/card";
+//badges
+import BadgeIa1 from "../ui/badge/blocks/snippets/Ia-1.astro";
+import BadgeAdmin1Shield from "../ui/badge/blocks/snippets/Admin-1-shield.astro";
+import BadgePlan1Free from "../ui/badge/blocks/snippets/Plan-1-free.astro";
+import BadgePlan2Pro from "../ui/badge/blocks/snippets/Plan-2-pro.astro";
+// buttons
+import ButtonTech1 from "../ui/button/blocks/snippets/Tech-1.astro";
+import ButtomNeoBrutalist1 from "../ui/button/blocks/snippets/NeoBrutalist-1.astro";
+import ButtonModern1 from "../ui/button/blocks/snippets/Modern-1.astro";
+import ButtonIa1Glowing from "../ui/button/blocks/snippets/Ia-1-glowing.astro";
+// avatars
+import AvatarDotOnline1Simple from "../ui/avatar/blocks/snippets/Dot-online-1-simple.astro";
+import AvatarDotOnline2Pulse from "../ui/avatar/blocks/snippets/Dot-online-2-pulse.astro";
+import AvatarTech1 from "../ui/avatar/blocks/snippets/Avatar-tech-1.astro";
+import AvatarBasic1 from "../ui/avatar/blocks/snippets/Avatar-basic-1.astro";
+
+const previewComponents = [
+  { name: "AvatarTech1", component: AvatarTech1 },
+  { name: "BadgeIa1", component: BadgeIa1 },
+  { name: "BadgeAdmin1Shield", component: BadgeAdmin1Shield },
+  { name: "BadgePlan1Free", component: BadgePlan1Free },
+  { name: "BadgePlan2Pro", component: BadgePlan2Pro },
+  { name: "AvatarDotOnline2Pulse", component: AvatarDotOnline2Pulse },
+  { name: "ButtonTech1", component: ButtonTech1 },
+  { name: "ButtomNeoBrutalist1", component: ButtomNeoBrutalist1 },
+  { name: "ButtonModern1", component: ButtonModern1 },
+  { name: "ButtonIa1Glowing", component: ButtonIa1Glowing },
+  { name: "AvatarDotOnline1Simple", component: AvatarDotOnline1Simple },
+  { name: "AvatarBasic1", component: AvatarBasic1 },
+];
+
+---
+
+<style>
+  .carousel {
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-x 30s linear infinite;
+  }
+
+  .carousel-track.reverse {
+    animation-direction: reverse;
+  }
+
+  .carousel-item {
+    flex: 0 0 auto;
+    padding: 0.75rem;
+    width: 200px;  
+    height: 130px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 37%, #e0e0e0 63%);
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+    border-radius: 6px;
+  }
+
+  .skeleton-text {
+    width: 70%;
+    height: 14px;
+    margin: 8px 0;
+  }
+
+  .skeleton-rect {
+    width: 100%;
+    height: 60px;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes scroll-x {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<section class="max-w-3xl lg:max-w-4xl mx-auto py-10">
+  <div class="carousel h-[140px]">
+    <div class="carousel-track">
+      {[...Array(2)].flatMap(() => [
+          previewComponents.map((comp, index) => (
+        <div class={`carousel-item animate-fade-in-down animate-delay-[${(index+1)*1000}ms]`}>
+          <Card class="h-full w-full">
+            <CardContent class="card-content">
+              <comp.component/>
+            </CardContent>
+          </Card>
+        </div>
+          ))
+      ])}
+    </div>
+  </div>
+  </div>
+</section>

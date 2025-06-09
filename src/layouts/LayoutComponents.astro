@@ -3,6 +3,7 @@ import {description, siteName, imageMetaAlt} from './constLayout'
 
 import '@fontsource/audiowide';
 import '../styles/global.css';
+import Footer from '@/components/home/Footer.astro';
 
 interface Props {
   title: string;
@@ -66,6 +67,9 @@ const { title } = Astro.props;
 	</div>
 	<main>
 		<slot />
+    <div class="max-w-3xl mx-auto mt-10 mb-24 lg:mb-5">
+      <Footer/>
+    </div>
 	</main>
 </body>
 </html>

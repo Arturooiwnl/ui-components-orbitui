@@ -1,62 +1,34 @@
 ---
-import PreviewContainer from '@/components/PreviewContainer.astro';
-
-import { inputsBlocks } from '@/components/ui/input/blocks/inputsBlocks';
-import { buttonsBlocks } from '@/components/ui/button/blocks/buttonsBlocks';
-import { cardsBlocks } from '@/components/ui/card/blocks/cardsBlocks';
-import { avatarsBlocks } from '@/components/ui/avatar/blocks/avatarsBlocks';
-import { badgesBlocks } from '@/components/ui/badge/blocks/badgesBlocks';
-import { alertsBlocks } from '@/components/ui/alert/blocks/alertsBlocks';
-
-const componentSections = [
-  {
-    title: "Buttons",
-    snippetContent: "orbitkit@latest add button",
-    colSpan: 1,
-    blocks: buttonsBlocks
-  },
-  {
-    title: "Inputs",
-    snippetContent: "orbitkit@latest add input",
-    colSpan: 2,
-    blocks: inputsBlocks
-  },
-  {
-    title: "Cards",
-    snippetContent: "orbitkit@latest add card",
-    colSpan: 2,
-    blocks: cardsBlocks
-  },
-  {
-    title: "Avatars",
-    snippetContent: "orbitkit@latest add avatar",
-    colSpan: 1,
-    blocks: avatarsBlocks
-  },
-  {
-    title: "Badges",
-    snippetContent: "orbitkit@latest add badge",
-    colSpan: 1,
-    blocks: badgesBlocks
-  },
-  {
-    title: "Alerts",
-    snippetContent: "orbitkit@latest add alert",
-    colSpan: 2,
-    blocks: alertsBlocks
-  },
-];
-
 import Layout from '../layouts/Layout.astro';
-import Sidebar from '@/components/Sidebar.astro';
+
+import Sidebar from '@/components/home/Sidebar.astro';
+import ComponentsPreview from '@/components/home/Carousel.astro';
+import Galleries from '@/components/home/Galleries.astro';
+import Footer from '@/components/home/Footer.astro';
+
+import Rocket from '@/assets/icons/rocket.astro';
 
 ---
 
-<Layout title="OrbitUI | Blocks">
+<Layout title="UIComponents | @OrbitUI">
 
-  <section class="px-12 py-10">
-    <header class="flex flex-col gap-2 items-center mb-20">
-      <h1 class="text-3xl md:text-5xl font-bold text-center title-gradient-text font-audiowide">
+  <section class="px-12 py-10 h-screen">
+    <header class="flex flex-col gap-2 items-center mt-5 lg:mt-15 mb-5 lg:mb-15 animate-fade-in">
+      <apan
+      class="relative inline-flex transistion overflow-hidden rounded-full p-0.5 "
+    >
+        <span
+          class="absolute  will-change-transform backface-hidden motion-reduce:animate-none blur-xs inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0f172a_0%,#1e293b_40%,#334155_70%,#0c4a6e_100%)]"
+        >
+        </span>
+        <span
+          class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950/80 px-7 py-0.5 text-xs font-medium text-gray-300 backdrop-blur-3xl gap-2 undefined"
+        >
+        <Rocket class="size-4"/>
+          blocks coming soon
+        </span>
+      </apan>
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center title-gradient-text font-audiowide">
         UI Components
       </h1>
     <p class="text-gray-300">Explore the gallery of UI components made with
@@ -68,13 +40,13 @@ import Sidebar from '@/components/Sidebar.astro';
     </p>
     </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:px-18 px-0 ">
-      <Sidebar/>
-      {componentSections.map(section => (
-        <PreviewContainer title={section.title} blocks={section.blocks} snippetContent={section.snippetContent}/>
-      ))}
-
+    <Sidebar currentPage='home'/> 
+    <ComponentsPreview/>
+    <Galleries/>
+    <div class="max-w-2xl mx-auto md:mt-10 py-24 md:py-0">
+      <Footer/>
     </div>
+
   </section>
 
 </Layout>

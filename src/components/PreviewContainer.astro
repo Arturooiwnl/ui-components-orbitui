@@ -5,17 +5,18 @@ import CopySnippet from './CopySnippet.astro';
 interface Props {
     title: string;
     snippetContent: string;
+	delay: number;
 	blocks: Record<string, any>[];
 }   
 
-const {title, snippetContent, blocks } = Astro.props; 
+const {title, snippetContent, blocks, delay } = Astro.props; 
 
 ---
 
 <span 
-	class={`section-component-${title} bg-gradient-to-br w-full from-blue-950 via-sky-700 to-blue-950 p-0.5 rounded-2xl transition-all duration-300`}
+	class={`section-component-${title} animate-fade-in-down animate-delay-[${delay}ms] bg-gradient-to-br w-full from-zinc-700 via-black to-zinc-700 p-0.5 rounded-2xl transition-all duration-300 `}
 	>
-	<section class="flex flex-col bg-gray-800 p-4 rounded-2xl">
+	<section class="flex flex-col bg-zinc-900/95 p-4 rounded-2xl">
 		<header class="flex flex-col gap-2 mb-5 max-w-sm mx-auto ">
 			<h2 class="text-2xl text-white font-bold text-center border-b border-slate-700 pb-2">{title}</h2>
 			<CopySnippet content={snippetContent}/>

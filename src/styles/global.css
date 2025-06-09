@@ -78,27 +78,30 @@
 
 .blocks-container {
     scrollbar-width: thin;
-    scrollbar-color: #8d2de249 #0f172a00;
+    scrollbar-color: #00000049 #0f172a00;
 }
 
 .title-gradient-text {
-    background: linear-gradient(120deg, #5ec4ff, #5b78fc, #8cdaf1, #5b78fc, #8cdaf1);
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 4s ease-in-out infinite;
-    position: relative;
+  background: linear-gradient(120deg, #58585a 0%, #d0d1d3 20%, #838485 50%, #5b697c 80%, #7f7f81 100%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shine-reflection 2s linear infinite;
+  position: relative;
 }
 
-@keyframes shimmer {
-    0%, 100% {
-        background-position: 200% center;
-    }
-    50% {
-        background-position: 0% center;
-    }
+@keyframes shine-reflection {
+  100% {
+    background-position: -100% 0;
+  }
+  60% {
+    background-position: 100% 0;
+  }
+  0% {
+    background-position: 100% 0;
+  }
 }
 
 .section-component-Cards,

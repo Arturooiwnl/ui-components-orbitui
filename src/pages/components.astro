@@ -47,31 +47,26 @@ const componentSections = [
   },
 ];
 
-import Layout from '../layouts/Layout.astro';
-import Sidebar from '@/components/Sidebar.astro';
+import Layout from '../layouts/LayoutComponents.astro';
+import Sidebar from '@/components/home/Sidebar.astro';
 
 ---
 
-<Layout title="OrbitUI | Blocks">
+<Layout title="OrbitUI | Gallery - Blocks">
 
   <section class="px-12 py-10">
     <header class="flex flex-col gap-2 items-center mb-20">
       <h1 class="text-3xl md:text-5xl font-bold text-center title-gradient-text font-audiowide">
-        UI Components
+        Components
       </h1>
-    <p class="text-gray-300">Explore the gallery of UI components made with
-    <a
-    class="text-white hover:text-primary transition-colors duration-300"
-    rel="noopener noreferrer" aria-label="go to OrbitUI" target="_blank" href="https://orbitui-docs.vercel.app/">
-      @OrbitUI
-    </a>
+    <p class="text-gray-300 font-semibold text-center">Explore individual components and <br/> add them to your UI
     </p>
     </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:px-18 px-0 ">
-      <Sidebar/>
-      {componentSections.map(section => (
-        <PreviewContainer title={section.title} blocks={section.blocks} snippetContent={section.snippetContent}/>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:px-30 px-2 ">
+      <Sidebar currentPage='componentes'/>
+      {componentSections.map((section, index) => (
+        <PreviewContainer delay={(index+1) * 1000} title={section.title} blocks={section.blocks} snippetContent={section.snippetContent}/>
       ))}
 
     </div>
