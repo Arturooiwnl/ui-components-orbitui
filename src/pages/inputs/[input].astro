@@ -6,7 +6,7 @@ import { componentsDataInputs } from '../../data/inputsData';
 import { inputsBlocks as ComponentsPreviews } from "@/components/ui/input/blocks/inputsBlocks"
 import CopyIcon from '@/assets/icons/copyIcon.astro';
 import CheckIcon from '@/assets/icons/checkIcon.astro';
-import Sidebar from '@/components/Sidebar.astro';
+import Sidebar from '@/components/home/Sidebar.astro';
 
 const selectedComponent = ComponentsPreviews.find((comp) => comp.id === Astro.params.input);
 const selectedCode = componentsDataInputs.find((code) => code.id === Astro.params.input);
