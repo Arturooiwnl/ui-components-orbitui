@@ -2,7 +2,6 @@
 
 <div align="center">
   <a href="https://ui-components-orbitui.vercel.app/" target="_blank"><img alt="Live Demo" src="https://img.shields.io/badge/Demo-online-blue?style=flat-square&logo=vercel"></a>
-  <a href="https://github.com/Arturooiwnl/ui-components-orbitui" target="_blank"><img alt="GitHub Repo" src="https://img.shields.io/github/stars/Arturooiwnl/ui-components-orbitui?style=social&logo=github">
 </div>
 
 # UIComponents | OrbitUI
