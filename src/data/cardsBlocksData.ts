@@ -1,6 +1,5 @@
 // AUTO-GENERATED FILE. DO NOT EDIT.
 
-import Default1 from '@/components/ui/card/blocks/snippets/Default-1.astro'
 import CardGlass1 from '@/components/ui/card/blocks/snippets/Card-1-glass.astro'
 import CardNeobrutalist1 from '@/components/ui/card/blocks/snippets/Card-neobrutalist-1.astro'
 import Retro1 from '@/components/ui/card/blocks/snippets/Retro-1.astro'
@@ -8,37 +7,6 @@ import ElegantDark1 from '@/components/ui/card/blocks/snippets/Elegant-1-dark.as
 import CardTech1 from '@/components/ui/card/blocks/snippets/Card-tech-1.astro'
 
 export const cardsBlocksData  = [
-  {
-    id: 'cards-default-1',
-    title: 'Default',
-    lang: 'astro',
-    component: Default1,
-    code: `---
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
----
-
-<Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Optional description for the card header.</CardDescription>
-  </CardHeader>
-
-  <CardContent>
-    <p>This is the main body of the card.</p>
-  </CardContent>
-
-  <CardFooter>
-    <p>Card footer content or actions.</p>
-  </CardFooter>
-</Card>`
-  },
   {
     id: 'cards-card-1-glass',
     title: 'Glass',

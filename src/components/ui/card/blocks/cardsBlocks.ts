@@ -1,4 +1,4 @@
-import Default1 from "./snippets/Default-1.astro";
+
 import CardGlass1 from "./snippets/Card-1-glass.astro";
 import CardNeobrutalist1 from "./snippets/Card-neobrutalist-1.astro";
 import Retro1 from "./snippets/Retro-1.astro";
@@ -6,12 +6,6 @@ import ElegantDark1 from "./snippets/Elegant-1-dark.astro";
 import CardTech1 from "./snippets/Card-tech-1.astro";
 
 export const cardsBlocks = [
-    {
-        id: "default-1",
-        title: "Default 1",
-        component: Default1,
-        link: "/cards/default-1"
-    },
     {
         id: "card-1-glass",
         title: "Glass IA",
