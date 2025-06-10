@@ -67,6 +67,7 @@ const componentSections = [
 import Layout from '../layouts/LayoutComponents.astro';
 import Sidebar from '@/components/home/Sidebar.astro';
 import Blocks from '@/assets/icons/blocks.astro';
+import AstroIcon from '@/assets/icons/astro-icon.astro';
 
 ---
 
@@ -97,7 +98,7 @@ import Blocks from '@/assets/icons/blocks.astro';
 		<footer class="flex flex-col gap-y-10 justify-center items-center w-full">
 			<div class="group relative w-full max-w-4xl px-2 py-10 sm:px-4 overflow-x-auto">
 				<Code code={`${block.code}`} lang={block.lang as BundledLanguage} wrap />
-				<p class="component-name">{block.id.charAt(0).toUpperCase() + block.id.slice(1)}.{block.lang}</p>
+				<p class="component-name"><AstroIcon class="size-4 text-orange-500"/>{block.id.charAt(0).toUpperCase() + block.id.slice(1)}.{block.lang}</p>
 				<div class="absolute top-13 right-7 flex justify-end items-center gap-5">
 				<button role="button" class="copy-button text-white px-1 py-1 rounded-sm hover:bg-slate-600/80 transition-colors duration-300 cursor-pointer">
 					<CopyIcon class="copy-icon size-3"/>

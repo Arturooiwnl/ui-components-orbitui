@@ -16,6 +16,21 @@ full_blocks = [
         "title": "Billed 1 - Card",
         "component": "Billed1Card",
     },
+    {
+        "id": "profile-card-1",
+        "title": "Profile 1",
+        "component": "Profile1",
+    },
+    {
+        "id": "profile-card-2",
+        "title": "Profile 2",
+        "component": "Profile2",
+    },
+    {
+        "id": "product-card-1",
+        "title": "Product 1",
+        "component": "Product1",
+    },
 ]
 
 component_import_path = "@/components/ui/blocks/snippets"

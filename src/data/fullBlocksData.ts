@@ -3,6 +3,9 @@
 import Auth1SignIn from '@/components/ui/blocks/snippets/Auth-1-signin.astro'
 import Auth1SignUp from '@/components/ui/blocks/snippets/Auth-1-signup.astro'
 import Billed1Card from '@/components/ui/blocks/snippets/Billed-card-1.astro'
+import Profile1 from '@/components/ui/blocks/snippets/Profile-card-1.astro'
+import Profile2 from '@/components/ui/blocks/snippets/Profile-card-2.astro'
+import Product1 from '@/components/ui/blocks/snippets/Product-card-1.astro'
 
 export const fullBlocksData = [
   {
@@ -227,6 +230,276 @@ import {
       Need more? <a href="#" class="text-indigo-400 hover:underline">Contact Sales</a>
     </p>
   </CardFooter>
+</Card>
+`
+  },
+  {
+    id: 'profile-card-1',
+    title: 'Profile 1',
+    lang: 'astro',
+    component: Profile1,
+    code: `---
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Divider } from "@/components/ui/divider";
+import {Avatar, AvatarImage, AvatarFallback} from "@/components/ui/avatar";
+import { ProgressContainer, Progress } from "@/components/ui/progress";
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardContent,
+    CardFooter,
+} from "@/components/ui/card";
+---
+
+<Card class="w-full max-w-md border-neutral-800 bg-neutral-900 text-white shadow-xl rounded-2xl">
+    <CardHeader class="relative flex flex-col items-center gap-2">
+        <Badge
+            variant="outline"
+            class="absolute -top-2 text-xs font-semibold tracking-wide uppercase bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white border-0 shadow-md shadow-pink-500/30"
+        >
+            Pro Member
+        </Badge>
+        <Avatar class="w-24 h-24 border-4 border-indigo-500/30">
+            <AvatarImage src="https://i.pravatar.cc/300" alt="User Avatar" />
+            <AvatarFallback>JD</AvatarFallback>
+        </Avatar>
+        <CardTitle class="text-2xl font-bold mt-2">John Doe</CardTitle>
+        <CardDescription class="text-neutral-400 text-center">Senior Developer</CardDescription>
+        <div class="flex gap-2 mt-1">
+            <Badge variant="outline" class="bg-neutral-800 text-white border-neutral-700">React</Badge>
+            <Badge variant="outline" class="bg-neutral-800 text-white border-neutral-700">TypeScript</Badge>
+            <Badge variant="outline" class="bg-neutral-800 text-white border-neutral-700">Astro</Badge>
+        </div>
+    </CardHeader>
+
+    <CardContent class="space-y-6">
+        <div class="flex justify-between text-sm text-neutral-400">
+            <div class="text-center">
+                <p class="text-xl font-bold text-white">234</p>
+                <p>Projects</p>
+            </div>
+            <div class="text-center">
+                <p class="text-xl font-bold text-white">12.4k</p>
+                <p>Followers</p>
+            </div>
+            <div class="text-center">
+                <p class="text-xl font-bold text-white">8.5k</p>
+                <p>Following</p>
+            </div>
+        </div>
+
+        <Divider class="my-4" />
+
+        <div class="space-y-4">
+            <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                    <span class="text-neutral-400">Task Completation</span>
+                    <span class="text-neutral-300">75%</span>
+                </div>
+                <ProgressContainer>
+                    <Progress value={75} class="bg-indigo-500/50" />
+                </ProgressContainer>
+            </div>
+
+            <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                    <span class="text-neutral-400">Project Completion</span>
+                    <span class="text-neutral-300">92%</span>
+                </div>
+                <ProgressContainer>
+                    <Progress value={92} class="bg-purple-500/50" />
+                </ProgressContainer>
+            </div>
+        </div>
+    </CardContent>
+
+    <CardFooter class="flex flex-col gap-3">
+        <Button class="w-full text-neutral-300 bg-indigo-500/50 hover:bg-indigo-600/50 border border-indigo-500 hover:border-indigo-600 transition-all duration-300">
+            Edit Profile
+        </Button>
+        <p class="text-sm text-center text-neutral-500">
+            Member since <span class="text-indigo-400">March 2023</span>
+        </p>
+    </CardFooter>
+</Card>
+`
+  },
+  {
+    id: 'profile-card-2',
+    title: 'Profile 2',
+    lang: 'astro',
+    component: Profile2,
+    code: `---
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Divider } from "@/components/ui/divider";
+import {Avatar, AvatarImage, AvatarFallback} from "@/components/ui/avatar";
+import { ProgressContainer, Progress } from "@/components/ui/progress";
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardContent,
+    CardFooter,
+} from "@/components/ui/card";
+---
+
+<Card class="w-full max-w-md border-neutral-800 bg-neutral-900 text-white shadow-xl rounded-2xl">
+    <CardHeader>
+        <div class="flex justify-between items-center">
+            <div class="space-y-1">
+                <CardTitle class="text-xl font-bold">John Doe</CardTitle>
+                <CardDescription class="text-neutral-400">john.doe@example.com</CardDescription>
+            </div>
+            <Avatar class="w-16 h-16">
+                <AvatarImage src="https://i.pravatar.cc/300" alt="User Avatar" />
+                <AvatarFallback>JD</AvatarFallback>
+            </Avatar>
+        </div>
+    </CardHeader>
+
+    <CardContent class="space-y-6">
+        <div class="space-y-4">
+            <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                    <span class="text-neutral-400">Storage Used</span>
+                    <span class="text-neutral-300">45.5GB / 100GB</span>
+                </div>
+                <ProgressContainer>
+                    <Progress value={45.5} class="bg-indigo-500/50" />
+                </ProgressContainer>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-neutral-800/50 p-4 rounded-lg">
+                    <p class="text-sm text-neutral-400">Total Projects</p>
+                    <p class="text-2xl font-bold text-white">24</p>
+                </div>
+                <div class="bg-neutral-800/50 p-4 rounded-lg">
+                    <p class="text-sm text-neutral-400">Active Tasks</p>
+                    <p class="text-2xl font-bold text-white">12</p>
+                </div>
+            </div>
+        </div>
+
+        <Divider />
+
+        <div class="space-y-4">
+            <h3 class="text-lg font-semibold">Plan Details</h3>
+            <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                    <span class="text-neutral-400">Plan</span>
+                    <span class="text-emerald-400">Pro</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-neutral-400">Billing Cycle</span>
+                    <span class="text-neutral-300">Monthly</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-neutral-400">Next Payment</span>
+                    <span class="text-neutral-300">Oct 1, 2023</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-2 bg-neutral-800/30 p-4 rounded-lg">
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-neutral-400">API Usage</span>
+                <Badge variant="outline" class="bg-indigo-500/20 text-gray-300 border-indigo-500/30">
+                    70%
+                </Badge>
+            </div>
+            <ProgressContainer>
+                <Progress value={70} class="bg-indigo-500/50" />
+            </ProgressContainer>
+        </div>
+    </CardContent>
+
+    <CardFooter class="flex gap-3">
+        <Button class="flex-1 bg-neutral-800 border-gray-600 hover:bg-neutral-70 hover:border-gray-700 text-white transition-all duration-300">
+            Manage Plan
+        </Button>
+        <Button class="flex-1 bg-indigo-500/50 border-indigo-500 hover:bg-indigo-600/50 hover:border-indigo-600 text-white transition-all duration-300">
+            View Dashboard
+        </Button>
+    </CardFooter>
+</Card>
+`
+  },
+  {
+    id: 'product-card-1',
+    title: 'Product 1',
+    lang: 'astro',
+    component: Product1,
+    code: `---
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+    Card,
+    CardHeader,
+    CardContent,
+    CardFooter,
+} from "@/components/ui/card";
+---
+
+<Card class="w-full max-w-md border-neutral-800 bg-neutral-900 text-white shadow-xl rounded-2xl">
+    <CardHeader>
+        <div class="relative h-64 overflow-hidden rounded-xl">
+            <img
+                src="/examples/product-1.png"
+                alt="Luxury Leather Bag"
+                class="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+            />
+            <Badge class="absolute top-4 right-4 bg-indigo-500/90">New Arrival</Badge>
+        </div>
+    </CardHeader>
+
+    <CardContent class="space-y-4">
+        <div class="flex justify-between items-start">
+            <div class="space-y-1">
+                <h2 class="text-xl font-bold">Premium Leather Bag</h2>
+                <p class="text-neutral-400 text-sm">Handcrafted Italian Leather</p>
+            </div>
+            <div class="text-right">
+                <p class="text-2xl font-bold text-white">$299.99</p>
+                <p class="text-sm text-emerald-400">In Stock</p>
+            </div>
+        </div>
+
+        <div class="space-y-3">
+            <div class="flex gap-2">
+                <Badge variant="outline" class="bg-neutral-800/50 text-neutral-300 border-neutral-700">
+                    Genuine Leather
+                </Badge>
+                <Badge variant="outline" class="bg-neutral-800/50 text-neutral-300 border-neutral-700">
+                    Water Resistant
+                </Badge>
+            </div>
+
+            <p class="text-neutral-400 text-sm leading-relaxed">
+                Luxurious handcrafted leather bag with premium metal fixtures. Perfect for both casual and formal occasions.
+            </p>
+
+            <div class="flex gap-3 pt-2">
+                <div class="w-6 h-6 rounded-full bg-neutral-700 ring-2 ring-neutral-600 cursor-pointer"></div>
+                <div class="w-6 h-6 rounded-full bg-amber-900 ring-2 ring-amber-800 cursor-pointer"></div>
+                <div class="w-6 h-6 rounded-full bg-slate-900 ring-2 ring-slate-800 cursor-pointer"></div>
+            </div>
+        </div>
+    </CardContent>
+
+    <CardFooter class="flex gap-3">
+        <Button class="flex-1 bg-neutral-800 border-gray-600 hover:bg-neutral-700 hover:border-gray-700 text-white transition-all duration-300">
+            Add to Cart
+        </Button>
+        <Button class="flex-1 bg-indigo-500/50 border-indigo-500 hover:bg-indigo-600/50 hover:border-indigo-600 text-white transition-all duration-300">
+            Buy Now
+        </Button>
+    </CardFooter>
 </Card>
 `
   },

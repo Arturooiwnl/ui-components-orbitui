@@ -9,7 +9,7 @@ import Modal from "@/components/Modal.astro";
 import { fullBlocksData } from '../data/fullBlocksData';
 import CopyIcon from "@/assets/icons/copyIcon.astro";
 import CheckIcon from "@/assets/icons/checkIcon.astro";
-
+import AstroIcon from "@/assets/icons/astro-icon.astro";
 ---
 
 <Layout title="OrbitUI | Gallery - Blocks">
@@ -37,7 +37,7 @@ import CheckIcon from "@/assets/icons/checkIcon.astro";
 			<footer class="flex flex-col gap-y-10 justify-center items-center w-full">
 				<div class="group relative w-full max-w-4xl px-2 py-10 sm:px-4 overflow-x-auto">
 					<Code code={`${comp.code}`} lang={comp.lang as BundledLanguage} wrap />
-					<p class="component-name">{comp.id.charAt(0).toUpperCase() + comp.id.slice(1)}.{comp.lang}</p>
+					<p class="component-name"><AstroIcon class="size-4 text-orange-500"/>{comp.id.charAt(0).toUpperCase() + comp.id.slice(1)}.{comp.lang}</p>
 					<div class="absolute top-13 right-7 flex justify-end items-center gap-5">
 					<button role="button" class="copy-button text-white px-1 py-1 rounded-sm hover:bg-slate-600/80 transition-colors duration-300 cursor-pointer">
 						<CopyIcon class="copy-icon size-3"/>

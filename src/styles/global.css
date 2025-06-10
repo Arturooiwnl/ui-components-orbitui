@@ -71,6 +71,10 @@
   }
 }
 
+pre[data-language] {
+  background-color: #1a1e23 !important; 
+}
+
 @property --border-angle {
     inherits: false;
     initial-value: 0deg;

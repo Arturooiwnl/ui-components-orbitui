@@ -138,11 +138,11 @@ document.addEventListener('click', (e) => {
 });
 
 document.querySelectorAll(".astro-code").forEach((codeBlock) => {
-  codeBlock.className = "rounded-xs p-3 border border-gray-500/50 group-hover:border-gray-500/80 transition-all duration-300";
+  codeBlock.className = "rounded-b-md rounded-tr-md p-3 border border-gray-500/50 transition-all duration-300";
 });
 
 document.querySelectorAll(".component-name").forEach((componentName) => {
-  componentName.className = "absolute top-4.5 left-3 bg-[#24292e] w-fit ml-5 mb-1.5 border-r border-l border-t border-gray-500/50 group-hover:border-gray-500/80 text-gray-300 text-xs px-5 py-1 rounded-sm font-mono";
+	componentName.className = "absolute flex items-center gap-2 top-4 -left-1 bg-[#1a1e23] w-fit ml-5 mb-1.5 border-r border-l border-t border-gray-500/50 text-gray-300 text-xs px-3 py-1 rounded-t-sm font-mono";
 });
 
 
