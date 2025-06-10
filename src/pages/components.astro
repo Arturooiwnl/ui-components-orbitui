@@ -1,58 +1,76 @@
 ---
 import PreviewContainer from '@/components/PreviewContainer.astro';
+import Modal from '@/components/Modal.astro';
 
-import { inputsBlocks } from '@/components/ui/input/blocks/inputsBlocks';
-import { buttonsBlocks } from '@/components/ui/button/blocks/buttonsBlocks';
-import { cardsBlocks } from '@/components/ui/card/blocks/cardsBlocks';
-import { avatarsBlocks } from '@/components/ui/avatar/blocks/avatarsBlocks';
-import { badgesBlocks } from '@/components/ui/badge/blocks/badgesBlocks';
-import { alertsBlocks } from '@/components/ui/alert/blocks/alertsBlocks';
+import { Code } from 'astro:components';
+import type { BundledLanguage } from 'shiki'; 
+import CopyIcon from '@/assets/icons/copyIcon.astro';
+import CheckIcon from '@/assets/icons/checkIcon.astro';
+
+
+import { alertsBlocksData } from '@/data/alertsBlocksData';
+import { avatarsBlocksData } from '@/data/avatarsBlocksData';
+import { badgesBlocksData } from '@/data/badgesBlocksData';
+import { buttonsBlocksData } from '@/data/buttonsBlocksData';
+import { cardsBlocksData } from '@/data/cardsBlocksData';
+import { inputsBlocksData } from '@/data/inputsBlocksData';
+
+const allBlocksData = [
+  ...alertsBlocksData,
+  ...avatarsBlocksData,
+  ...badgesBlocksData,
+  ...buttonsBlocksData,
+  ...cardsBlocksData,
+  ...inputsBlocksData,
+];
+
 
 const componentSections = [
   {
     title: "Buttons",
     snippetContent: "orbitkit@latest add button",
     colSpan: 1,
-    blocks: buttonsBlocks
+    blocks: buttonsBlocksData
   },
   {
     title: "Inputs",
     snippetContent: "orbitkit@latest add input",
     colSpan: 2,
-    blocks: inputsBlocks
+    blocks: inputsBlocksData
   },
   {
     title: "Cards",
     snippetContent: "orbitkit@latest add card",
     colSpan: 2,
-    blocks: cardsBlocks
+    blocks: cardsBlocksData
   },
   {
     title: "Avatars",
     snippetContent: "orbitkit@latest add avatar",
     colSpan: 1,
-    blocks: avatarsBlocks
+    blocks: avatarsBlocksData
   },
   {
     title: "Badges",
     snippetContent: "orbitkit@latest add badge",
     colSpan: 1,
-    blocks: badgesBlocks
+    blocks: badgesBlocksData
   },
   {
     title: "Alerts",
     snippetContent: "orbitkit@latest add alert",
     colSpan: 2,
-    blocks: alertsBlocks
+    blocks: alertsBlocksData
   },
 ];
 
 import Layout from '../layouts/LayoutComponents.astro';
 import Sidebar from '@/components/home/Sidebar.astro';
+import Blocks from '@/assets/icons/blocks.astro';
 
 ---
 
-<Layout title="OrbitUI | Gallery - Blocks">
+<Layout title="OrbitUI | Gallery - Components">
 
   <section class="px-12 py-10">
     <header class="flex flex-col gap-2 items-center mb-20">
@@ -62,14 +80,52 @@ import Sidebar from '@/components/home/Sidebar.astro';
     <p class="text-gray-300 font-semibold text-center">Explore individual components and <br/> add them to your UI
     </p>
     </header>
-
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:px-30 px-2 ">
-      <Sidebar currentPage='componentes'/>
+      <Sidebar currentPage='components'/>
       {componentSections.map((section, index) => (
-        <PreviewContainer delay={(index+1) * 1000} title={section.title} blocks={section.blocks} snippetContent={section.snippetContent}/>
+            <PreviewContainer delay={(index+1) * 1000} title={section.title} blocks={section.blocks} snippetContent={section.snippetContent}/>
       ))}
-
     </div>
   </section>
+  <section class="max-w-7xl flex justify-center items-center px-4 mx-auto">
+{allBlocksData.map(block =>(
+	<Modal id={`modal-component-${block.id}`} title={block.title}>
+		<div class="flex flex-col justify-center items-center">
+		<div class="flex justify-center mx-auto gap-4 w-full px-20">
+			<block.component/>
+		</div>
+		<footer class="flex flex-col gap-y-10 justify-center items-center w-full">
+			<div class="group relative w-full max-w-4xl px-2 py-10 sm:px-4 overflow-x-auto">
+				<Code code={`${block.code}`} lang={block.lang as BundledLanguage} wrap />
+				<p class="component-name">{block.id.charAt(0).toUpperCase() + block.id.slice(1)}.{block.lang}</p>
+				<div class="absolute top-13 right-7 flex justify-end items-center gap-5">
+				<button role="button" class="copy-button text-white px-1 py-1 rounded-sm hover:bg-slate-600/80 transition-colors duration-300 cursor-pointer">
+					<CopyIcon class="copy-icon size-3"/>
+					<CheckIcon class="copy-icon-check hidden size-3"/>
+				</button>
+				</div>
+			</div>
+		</footer>
+		</div>
+	</Modal>
+	))}
+  </section>
 
-</Layout>
+  <section class="flex justify-center items-center py-12 px-10">
+    <a
+    aria-label="Explore blocks"
+    href="/blocks"
+    class="group w-full max-w-[422px] hover:scale-105 transition-all duration-300 [background:linear-gradient(45deg,#18181b_0%,#27272a_50%,#18181b_100%)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.zinc.700/.7)_80%,theme(colors.indigo.700)_86%,theme(colors.indigo.400)_90%,theme(colors.indigo.700)_94%,theme(colors.zinc.700/.7))_border-box] rounded-2xl border border-transparent animate-border">
+    <article class="relative p-5">
+        <header class="flex flex-col justify-center items-center">
+            <div class="bg-slate-700/50 border border-slate-700 p-4 rounded-full">
+              <Blocks class="group-hover:scale-105 transition-all duration-300"/>
+            </div>
+            <h3 class="text-lg font-bold text-gray-300">Explore blocks!</h3>
+            <p class="text-xs text-gray-400 mt-2 ">blocks weekly</p>
+        </header>
+    </article>
+  </a>
+  </section>
+
+</Layout> 

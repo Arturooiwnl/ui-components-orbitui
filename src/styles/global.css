@@ -4,6 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --animate-border: border 4s linear infinite;
   --font-audiowide: 'Audiowide', system-ui;
   --color-background: var(--background);
   --color-surface: var(--surface);
@@ -70,12 +71,18 @@
   }
 }
 
+@property --border-angle {
+    inherits: false;
+    initial-value: 0deg;
+    syntax: '<angle>';
+}
+
 @layer base {
   body {
     @apply bg-background text-foreground;
   }
 }
-
+.modal-content,
 .blocks-container {
     scrollbar-width: thin;
     scrollbar-color: #00000049 #0f172a00;
@@ -103,11 +110,16 @@
     background-position: 100% 0;
   }
 }
-
 .section-component-Cards,
 .section-component-Alerts,
 .section-component-Inputs{
   @apply xl:col-span-2
+}
+
+@keyframes border {
+  to {
+    --border-angle: 360deg;
+  }
 }
 
 @keyframes shine {

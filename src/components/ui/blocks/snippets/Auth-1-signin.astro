@@ -1,0 +1,66 @@
+---
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Divider } from "@/components/ui/divider";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+---
+
+  <Card class="w-full max-w-md border-neutral-800 bg-neutral-900 text-white shadow-xl rounded-2xl">
+      <CardHeader class="flex flex-col justify-center items-center">
+        <Badge variant="outline" class="bg-neutral-800 text-white border-neutral-700">Acme.co</Badge>
+      <CardTitle class="text-2xl mt-4">Welcome back</CardTitle>
+      <CardDescription class="text-neutral-400">Sign in to your account to continue</CardDescription>
+    </CardHeader>
+
+<CardContent class="space-y-6">
+  <div class="flex flex-col gap-3 px-3">
+    <button class="cursor-pointer w-full flex items-center justify-center gap-2 px-4 py-2 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition">
+      <svg class="w-5 h-5" viewBox="0 0 533.5 544.3" fill="currentColor">
+        <path d="M533.5 278.4c0-17.7-1.5-35-4.3-51.7H272v97.9h146.9c-6.4 34.3-25.1 63.4-53.6 82.8v68.7h86.6c50.6-46.6 81.6-115.3 81.6-197.7z" fill="#4285f4"/>
+        <path d="M272 544.3c72.9 0 134-24.2 178.7-65.7l-86.6-68.7c-24.1 16.2-55 25.7-92.1 25.7-70.8 0-130.8-47.8-152.4-111.8H30.9v70.3c44.7 88.1 136.5 149.5 241.1 149.5z" fill="#34a853"/>
+        <path d="M119.6 323.8c-9.6-28.5-9.6-59.1 0-87.6V165.9H30.9c-38.3 75.4-38.3 163.1 0 238.5l88.7-70.6z" fill="#fbbc04"/>
+        <path d="M272 107.7c39.6-.6 77.7 13.7 106.8 39.5l80.1-80.1C412.4 24.2 351.3 0 272 0 167.4 0 75.6 61.4 30.9 149.5l88.7 70.3C141.2 155.4 201.2 107.7 272 107.7z" fill="#ea4335"/>
+      </svg>
+      Continue with Google
+    </button>
+    <button class="cursor-pointer w-full flex items-center justify-center gap-2 px-4 py-2 bg-neutral-800 text-white font-medium border border-neutral-600 rounded-md hover:bg-neutral-700 transition">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.27c-3.338.724-4.033-1.416-4.033-1.416-.546-1.386-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.204.085 1.837 1.236 1.837 1.236 1.07 1.833 2.807 1.303 3.492.996.108-.775.418-1.304.76-1.604-2.665-.304-5.466-1.333-5.466-5.933 0-1.312.47-2.384 1.236-3.222-.124-.303-.536-1.527.118-3.183 0 0 1.008-.322 3.3 1.23a11.47 11.47 0 013.004-.404c1.02.005 2.05.137 3.004.404 2.29-1.552 3.296-1.23 3.296-1.23.656 1.656.244 2.88.12 3.183.77.838 1.234 1.91 1.234 3.222 0 4.61-2.806 5.625-5.478 5.922.43.37.814 1.096.814 2.21v3.277c0 .32.218.694.826.576C20.565 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"/>
+      </svg>
+      Continue with GitHub
+    </button>
+  </div>
+
+  <Divider class="my-4" />
+
+  <div class="space-y-2">
+    <label for="email" class="block text-sm text-neutral-300">Email</label>
+    <Input
+      placeholder="you@example.com"
+      class="w-full px-4 py-2 bg-neutral-800 text-white rounded-md border border-neutral-700 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    />
+  </div>
+  <div class="space-y-2">
+    <label for="password" class="block text-sm text-neutral-300">Password</label>
+    <Input
+      placeholder="••••••••"
+      class="w-full px-4 py-2 bg-neutral-800 text-white rounded-md border border-neutral-700 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    />
+  </div>
+</CardContent>
+
+    <CardFooter class="flex flex-col gap-3">
+      <Button class="w-full text-neutral-300 hover:border-indigo-600 hover:bg-indigo-600/50 bg-indigo-500/50 border border-indigo-500 transition-all duration-300" >Sign In</Button>
+      <p class="text-sm text-center text-neutral-500">
+        Don’t have an account? <a href="#" class="text-indigo-400 hover:underline">Sign up</a>
+      </p>
+    </CardFooter>
+  </Card>

@@ -1,4 +1,4 @@
-import Default1 from "./snippets/default-1.astro";
+import Default1 from "./snippets/Default-1.astro";
 import CardGlass1 from "./snippets/Card-1-glass.astro";
 import CardNeobrutalist1 from "./snippets/Card-neobrutalist-1.astro";
 import Retro1 from "./snippets/Retro-1.astro";

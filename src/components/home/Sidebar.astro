@@ -3,29 +3,39 @@ import Home from "@/assets/icons/home.astro";
 import Github from "@/assets/icons/github.astro";
 import Discord from "@/assets/icons/discord.astro";
 import Category from "@/assets/icons/category.astro";
+import CodeIcon from "@/assets/icons/codeIcon.astro";
 
 
 interface Props {
   currentPage?: string;
 }
-
 const { currentPage } = Astro.props
 
 const NAVIGATIONS = [
-  (currentPage !== "home"
-    ? {
+  ...(currentPage !== "home"
+    ? [{
         label: "Home",
         href: "/",
         icon: Home,
         tooltip: "Home",
-      }
-    : {
+      }]
+    : []),
+  ...(currentPage !== "components"
+    ? [{
         label: "Components",
         href: "/components",
-        icon: Category,
+        icon: CodeIcon,
         tooltip: "Components",
-      }
-  ),
+      }]
+    : []),
+  ...(currentPage !== "blocks"
+    ? [{
+        label: "Blocks",
+        href: "/blocks",
+        icon: Category,
+        tooltip: "Blocks",
+      }]
+    : []),
 ];
 
 const EXTERNALS = [

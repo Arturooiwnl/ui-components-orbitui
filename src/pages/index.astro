@@ -12,9 +12,11 @@ import Rocket from '@/assets/icons/rocket.astro';
 
 <Layout title="UIComponents | @OrbitUI">
 
-  <section class="px-12 py-10 h-screen">
+  <section class="px-12 py-10">
     <header class="flex flex-col gap-2 items-center mt-5 lg:mt-15 mb-5 lg:mb-15 animate-fade-in">
-      <apan
+      <a
+      aria-label="explore blocks"
+      href="/blocks"
       class="relative inline-flex transistion overflow-hidden rounded-full p-0.5 "
     >
         <span
@@ -25,9 +27,9 @@ import Rocket from '@/assets/icons/rocket.astro';
           class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950/80 px-7 py-0.5 text-xs font-medium text-gray-300 backdrop-blur-3xl gap-2 undefined"
         >
         <Rocket class="size-4"/>
-          blocks coming soon
+          blocks weekly
         </span>
-      </apan>
+      </a>
       <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center title-gradient-text font-audiowide">
         UI Components
       </h1>
@@ -43,7 +45,7 @@ import Rocket from '@/assets/icons/rocket.astro';
     <Sidebar currentPage='home'/> 
     <ComponentsPreview/>
     <Galleries/>
-    <div class="max-w-2xl mx-auto md:mt-10 py-24 md:py-0">
+    <div class="max-w-2xl mt-10 mx-auto py-24">
       <Footer/>
     </div>
 

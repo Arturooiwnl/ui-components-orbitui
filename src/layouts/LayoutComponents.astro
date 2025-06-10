@@ -76,30 +76,75 @@ const { title } = Astro.props;
 
 <script is:inline>
 
-    const code = document.querySelector("code");
-    const copyBtn = document.querySelector('.copy-button');
-    const copyIcon = document.querySelector('.copy-icon');
-    const copyIconCheck = document.querySelector('.copy-icon-check');
-    
-    copyBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(code.textContent)
-            .then(() => {
-                copyIcon.classList.toggle("hidden")
-                copyIconCheck.classList.toggle("hidden")
-                setTimeout(() => {
-                    copyIcon.classList.toggle("hidden")
-                    copyIconCheck.classList.toggle("hidden")
-                }, 2000);
-            })
-            .catch(err => {
-                console.error("An error occurred while copying the text: ", err);
-            });
-    });
+document.addEventListener('click', (e) => {
+    if (e.target.closest('.copy-button')) {
+        const copyBtn = e.target.closest('.copy-button');
+        let textToCopy = '';
+        let copyMethod = '';
+        
+        const inlineContainer = copyBtn.closest('[data-code-container]');
+        if (inlineContainer) {
+            const executableName = inlineContainer.querySelector('.text-\\[\\#82AAFF\\]')?.textContent || '';
+            const content = inlineContainer.querySelector('.text-\\[\\#ECC48D\\]')?.textContent || '';
+            textToCopy = `${executableName}${content}`.trim();
+            copyMethod = 'inline';
+        }
+        
+        else {
+            let container = copyBtn.parentElement;
+            while (container && !container.classList.contains('group') && !container.classList.contains('modal')) {
+                container = container.parentElement;
+            }
+            
+            if (container) {
+                const codeElement = container.querySelector('pre code');
+                if (codeElement) {
+                    textToCopy = codeElement.textContent.trim();
+                    copyMethod = 'modal';
+                }
+            }
+        }
+        
+        if (!textToCopy) {
+            const nearestCode = copyBtn.closest('div').querySelector('code') || 
+            copyBtn.parentElement.querySelector('code');
+            if (nearestCode) {
+                textToCopy = nearestCode.textContent.trim();
+                copyMethod = 'fallback';
+            }
+        }
+        
+        if (textToCopy) {
+            const copyIcon = copyBtn.querySelector('.copy-icon');
+            const copyIconCheck = copyBtn.querySelector('.copy-icon-check');
+            
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    copyIcon.classList.add("hidden");
+                    copyIconCheck.classList.remove("hidden");
+                    
+                    setTimeout(() => {
+                        copyIcon.classList.remove("hidden");
+                        copyIconCheck.classList.add("hidden");
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error("Error copying text: ", err);
+                });
+        } else {
+            console.warn("No code found to copy near the button");
+        }
+    }
+});
 
-	const codeBlock = document.querySelector(".astro-code")
-	const componentName = document.querySelector(".component-name")
-	codeBlock.className = "rounded-xs p-3 border border-gray-500/50 group-hover:border-gray-500/80 transition-all duration-300"
-	componentName.className = "absolute top-4.5 left-3 bg-[#24292e] w-fit ml-5 mb-1.5 border-r border-l border-t border-gray-500/50 group-hover:border-gray-500/80 text-gray-800 dark:text-gray-300 text-xs px-5 py-1 rounded-sm font-mono"
+document.querySelectorAll(".astro-code").forEach((codeBlock) => {
+  codeBlock.className = "rounded-xs p-3 border border-gray-500/50 group-hover:border-gray-500/80 transition-all duration-300";
+});
+
+document.querySelectorAll(".component-name").forEach((componentName) => {
+  componentName.className = "absolute top-4.5 left-3 bg-[#24292e] w-fit ml-5 mb-1.5 border-r border-l border-t border-gray-500/50 group-hover:border-gray-500/80 text-gray-300 text-xs px-5 py-1 rounded-sm font-mono";
+});
+
 
 </script>
 

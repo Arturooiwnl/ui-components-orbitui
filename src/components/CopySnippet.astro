@@ -11,22 +11,22 @@ const {executableName = "npx", content} = Astro.props
 
 ---
 
-<code class="code relative text-sm sm:text-base px-4 py-3 inline-flex text-left items-center space-x-4 bg-gray-950/50 border border-slate-600/50 hover:border-slate-700 transition-all duration-300 text-white rounded-lg">
+<!-- Cambiar la estructura: div contenedor con code interno -->
+<div data-code-container class="code-container relative text-sm sm:text-base px-4 py-3 inline-flex text-left items-center space-x-4 bg-gray-950/50 border border-slate-600/50 hover:border-slate-700 transition-all duration-300 text-white rounded-lg">
     <header class="text-xs">
-    <span>
-        <span class="text-[#82AAFF]">
-        {executableName}
-        </span>
-        <span class="text-[#ECC48D]">
-        {content}
-        </span>       
-    </span>
+        <code class="code-content">
+            <span class="text-[#82AAFF]">
+                {executableName}
+            </span>
+            <span class="text-[#ECC48D]">
+                {content}
+            </span>       
+        </code>
     </header>
     <footer class="absolute right-1 top-2.5">
-        <button role="button" aria-label="Copiar IP" class="copy-button text-white px-1 py-1 rounded-sm hover:bg-slate-600/80 transition-colors duration-300 cursor-pointer">
+        <button role="button" class="copy-button text-white px-1 py-1 rounded-sm hover:bg-slate-600/80 transition-colors duration-300 cursor-pointer">
             <CopyIcon class="copy-icon size-3"/>
             <CheckIcon class="copy-icon-check hidden size-3"/>
         </button>
     </footer>
-</code>
-   
+</div>

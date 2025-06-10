@@ -1,0 +1,89 @@
+---
+
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<article id={id} class="modal fixed inset-0 z-50 hidden">
+  <div class="modal-overlay h-screen absolute inset-0 bg-black/60 backdrop-blur-xs"></div>
+
+  <div class="modal-wrapper animate-fade-in-up fixed inset-0 flex justify-center items-center px-4 py-10 overflow-hidden">
+    <div class="p-1 bg-gradient-to-br from-zinc-700 via-black to-zinc-700 rounded-2xl shadow-2xl">
+      <div class="modal-container bg-zinc-900/95 rounded-2xl shadow-xl max-h-[90vh] w-full max-w-6xl mx-auto flex flex-col overflow-hidden">
+        
+        <header class="modal-header sticky top-0 z-10 flex justify-between items-center p-4 border-b border-zinc-700 bg-zinc-900/90 backdrop-blur-md">
+          <div class="flex flex-col">
+            <h3 class="text-xl font-semibold text-white flex items-center gap-2">
+              {title}
+            </h3>
+          </div>
+          <button class="modal-close cursor-pointer z-50 text-gray-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </header>
+
+        <footer class="modal-content flex-1 overflow-y-auto p-6 space-y-6">
+          <slot />
+        </footer>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
+    const modals = document.querySelectorAll('.modal');
+
+    modalTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const modalId = trigger.getAttribute('data-modal-target');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.remove('hidden');
+          document.body.classList.add('overflow-hidden');
+        }
+      });
+    });
+    
+    modals.forEach(modal => {
+    const overlays = modal.querySelectorAll('.modal-overlay');
+    const closeBtns = modal.querySelectorAll('.modal-close');
+
+    overlays.forEach(overlay => {
+      overlay.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      });
+    });
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      });
+    });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modals.forEach(modal => {
+          if (!modal.classList.contains('hidden')) {
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+          }
+        });
+      }
+    });
+    });
+</script>

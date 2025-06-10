@@ -26,6 +26,14 @@
     {
       "name": "alert",
       "version": "0.0.1"
+    },
+    {
+      "name": "divider",
+      "version": "0.0.1"
+    },
+    {
+      "name": "switch",
+      "version": "0.0.1"
     }
   ]
 }
