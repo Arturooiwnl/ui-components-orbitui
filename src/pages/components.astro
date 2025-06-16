@@ -1,13 +1,11 @@
 ---
 import PreviewContainer from '@/components/PreviewContainer.astro';
 import Modal from '@/components/Modal.astro';
+import Layout from "@/layouts/LayoutComponents.astro";
+import Sidebar from '@/components/home/Sidebar.astro';
 
 import { Code } from 'astro:components';
 import type { BundledLanguage } from 'shiki'; 
-import CopyIcon from '@/assets/icons/copyIcon.astro';
-import CheckIcon from '@/assets/icons/checkIcon.astro';
-
-
 import { alertsBlocksData } from '@/data/alertsBlocksData';
 import { avatarsBlocksData } from '@/data/avatarsBlocksData';
 import { badgesBlocksData } from '@/data/badgesBlocksData';
@@ -64,14 +62,13 @@ const componentSections = [
   },
 ];
 
-import Layout from '../layouts/LayoutComponents.astro';
-import Sidebar from '@/components/home/Sidebar.astro';
 import Blocks from '@/assets/icons/blocks.astro';
 import AstroIcon from '@/assets/icons/astro-icon.astro';
-
+import CopyIcon from '@/assets/icons/copyIcon.astro';
+import CheckIcon from '@/assets/icons/checkIcon.astro';
 ---
 
-<Layout title="OrbitUI | Gallery - Components">
+<Layout title="UIComponentes - @OrbitUI | Components">
 
   <section class="px-12 py-10">
     <header class="flex flex-col gap-2 items-center mb-20">
@@ -81,7 +78,7 @@ import AstroIcon from '@/assets/icons/astro-icon.astro';
     <p class="text-gray-300 font-semibold text-center">Explore individual components and <br/> add them to your UI
     </p>
     </header>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:px-30 px-2 ">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:px-30 md:px-2 ">
       <Sidebar currentPage='components'/>
       {componentSections.map((section, index) => (
             <PreviewContainer delay={(index+1) * 1000} title={section.title} blocks={section.blocks} snippetContent={section.snippetContent}/>

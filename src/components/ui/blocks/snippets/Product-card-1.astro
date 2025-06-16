@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 ---
 
-<Card class="w-full max-w-md border-neutral-800 bg-neutral-900 text-white shadow-xl rounded-2xl">
+<Card class="relative w-full max-w-md border-neutral-800 bg-neutral-900 text-white shadow-xl rounded-2xl">
     <CardHeader>
         <div class="relative h-64 overflow-hidden rounded-xl">
             <img
@@ -54,6 +54,5 @@ import {
         </Button>
     </CardFooter>
 
-    <Badge class="absolute text-white top-2 left-1/2 -translate-x-1/2 right-4 bg-indigo-500/90">New Arrival</Badge>
-
+    <Badge class="absolute text-white -top-2 left-1/2 -translate-x-1/2 right-4 bg-indigo-500/90">New Arrival</Badge>
 </Card>

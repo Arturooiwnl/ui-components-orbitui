@@ -38,6 +38,10 @@
     {
       "name": "progress",
       "version": "0.0.1"
+    },
+    {
+      "name": "list",
+      "version": "0.0.1"
     }
   ]
 }

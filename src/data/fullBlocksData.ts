@@ -446,23 +446,21 @@ import {
 } from "@/components/ui/card";
 ---
 
-<Card class="w-full max-w-md border-neutral-800 bg-neutral-900 text-white shadow-xl rounded-2xl">
+<Card class="relative w-full max-w-md border-neutral-800 bg-neutral-900 text-white shadow-xl rounded-2xl">
     <CardHeader>
         <div class="relative h-64 overflow-hidden rounded-xl">
             <img
                 src="/examples/product-1.png"
                 alt="Luxury Leather Bag"
-                class="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                class="object-cover drop-shadow-black drop-shadow-lg w-full h-full transition-transform duration-300 hover:scale-105"
             />
-            <Badge class="absolute top-4 right-4 bg-indigo-500/90">New Arrival</Badge>
         </div>
     </CardHeader>
 
     <CardContent class="space-y-4">
         <div class="flex justify-between items-start">
             <div class="space-y-1">
-                <h2 class="text-xl font-bold">Premium Leather Bag</h2>
-                <p class="text-neutral-400 text-sm">Handcrafted Italian Leather</p>
+                <h2 class="text-xl font-bold">Air Jordan 1</h2>
             </div>
             <div class="text-right">
                 <p class="text-2xl font-bold text-white">$299.99</p>
@@ -471,17 +469,9 @@ import {
         </div>
 
         <div class="space-y-3">
-            <div class="flex gap-2">
-                <Badge variant="outline" class="bg-neutral-800/50 text-neutral-300 border-neutral-700">
-                    Genuine Leather
-                </Badge>
-                <Badge variant="outline" class="bg-neutral-800/50 text-neutral-300 border-neutral-700">
-                    Water Resistant
-                </Badge>
-            </div>
 
             <p class="text-neutral-400 text-sm leading-relaxed">
-                Luxurious handcrafted leather bag with premium metal fixtures. Perfect for both casual and formal occasions.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis impedit modi repudiandae delectus corporis dignissimos.
             </p>
 
             <div class="flex gap-3 pt-2">
@@ -500,6 +490,8 @@ import {
             Buy Now
         </Button>
     </CardFooter>
+
+    <Badge class="absolute text-white -top-2 left-1/2 -translate-x-1/2 right-4 bg-indigo-500/90">New Arrival</Badge>
 </Card>
 `
   },

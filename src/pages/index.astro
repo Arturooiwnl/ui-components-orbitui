@@ -1,6 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
+import Layout from '@/layouts/Layout.astro';
 import Sidebar from '@/components/home/Sidebar.astro';
 import ComponentsPreview from '@/components/home/Carousel.astro';
 import Galleries from '@/components/home/Galleries.astro';
@@ -9,9 +8,7 @@ import Footer from '@/components/home/Footer.astro';
 import Rocket from '@/assets/icons/rocket.astro';
 
 ---
-
 <Layout title="UIComponents | @OrbitUI">
-
   <section class="px-12 py-10">
     <header class="flex flex-col gap-2 items-center mt-5 lg:mt-15 mb-5 lg:mb-15 animate-fade-in">
       <a
@@ -48,7 +45,5 @@ import Rocket from '@/assets/icons/rocket.astro';
     <div class="max-w-2xl mt-10 mx-auto py-24">
       <Footer/>
     </div>
-
   </section>
-
 </Layout>

@@ -28,7 +28,7 @@ const {title, snippetContent, blocks, delay } = Astro.props;
 					<header class="relative flex gap-2 items-center border-b border-slate-700 mb-2">
 						<h3 class="text-lg text-gray-300">{block.title}</h3>
 						<div class="absolute right-5">
-							<button data-modal-target={`modal-component-${block.id}`} class="cursor-pointer flex gap-2 items-center text-gray-300 hover:bg-slate-600/50 px-2 rounded-full hover:text-white transition-all duration-300"><CodeIcon class="size-4"/><span class="md:hidden lg:flex">Code</span></button>
+							<button data-modal-target={`modal-component-${block.id}`} class="cursor-pointer flex gap-2 items-center text-gray-300 hover:bg-slate-600/50 px-2 rounded-full hover:text-white transition-all duration-300"><CodeIcon class="size-4"/><span class="hidden lg:flex">Code</span></button>
 						</div>
 					</header>
 					<footer class="border-b border-slate-700">
