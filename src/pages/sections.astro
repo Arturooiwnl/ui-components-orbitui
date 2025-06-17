@@ -20,7 +20,7 @@ import { sectionsBlocksData } from "@/data/sectionsBlocksData";
     <section class="max-w-7xl mx-auto columns-1 lg:columns-2 gap-6 space-y-4">
       {sectionsBlocksData.map((comp) => (
           <SectionsCard target={comp.id}>
-            <img class="rounded-2xl" src={comp.img}/>
+            <img width="auto" height="auto" class="rounded-2xl w-full aspect-[16/9] object-cover" src={comp.img}/>
           </SectionsCard> 
         ))} 
     </section>

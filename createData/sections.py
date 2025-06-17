@@ -8,6 +8,21 @@ sections_blocks =  [
             "component": "Princing1",
             "img": f"{img_section_path}pricing-1.png"
         },
+        {   "id":"ai-chat-1",
+            "title": "AI Chat 1",
+            "component": "AiChat1",
+            "img": f"{img_section_path}ai-chat-1.png"
+        },
+        {   "id":"features-1",
+            "title": "Features 1",
+            "component": "Features1",
+            "img": f"{img_section_path}features-1.png"
+        },
+        {   "id":"testimonies-1",
+            "title": "Testimonies 1",
+            "component": "Testimonies1",
+            "img": f"{img_section_path}features-1.png"
+        },
     ]
 
 component_name_file = "sections"
@@ -47,7 +62,7 @@ for comp in blocks:
         "code": source_code
     })
 
-output_ts_path = f"./src/data/{component_name_file}sBlocksData.ts"
+output_ts_path = f"./src/data/{component_name_file}BlocksData.ts"
 
 with open(output_ts_path, "w", encoding="utf-8") as f:
     f.write("// AUTO-GENERATED FILE. DO NOT EDIT.\n\n")
@@ -55,7 +70,7 @@ with open(output_ts_path, "w", encoding="utf-8") as f:
     for comp in output_data:
         f.write(f"import {comp['component']} from '{component_import_path}/{comp['id'].capitalize()}.astro'\n")
     
-    f.write(f"\nexport const {component_name_file}sBlocksData  = [\n")
+    f.write(f"\nexport const {component_name_file}BlocksData  = [\n")
 
     for comp in output_data:
         f.write("  {\n")
